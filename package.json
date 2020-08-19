@@ -1,0 +1,36 @@
+{
+  "name": "parse-google-docs",
+  "version": "1.0.0",
+  "description": "This Node.js module authenticates with Google API and parse Google Docs to HTML or Markdown.",
+  "main": "source/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filipedeschamps/parse-google-docs.git"
+  },
+  "keywords": [
+    "google",
+    "api",
+    "google",
+    "docs",
+    "html",
+    "markdown"
+  ],
+  "author": "Filipe Deschamps",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/filipedeschamps/parse-google-docs/issues"
+  },
+  "homepage": "https://github.com/filipedeschamps/parse-google-docs#readme",
+  "dependencies": {
+    "googleapis": "59.0.0",
+    "json2md": "1.7.1",
+    "lodash.get": "4.4.2",
+    "lodash.last": "3.0.0",
+    "lodash.repeat": "4.1.0",
+    "yamljs": "0.3.0"
+  }
+}
