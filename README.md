@@ -1,6 +1,6 @@
-# Parse Google Docs
+# Parse Google Docs JSON
 
-This **Node.js** module authenticates with **Google API** and parse **Google Docs** to **JSON** or **Markdown** without the need to use cumbersome methods like exporting it in HTML via **Google Drive API** and then parse it back to other formats.
+This **Node.js** module authenticates with **Google API** and parse **Google Docs** to human-readable **JSON** or **Markdown** without the need to use cumbersome methods like exporting it in HTML via **Google Drive API** and then parse it back to other formats.
 
 # Why
 
