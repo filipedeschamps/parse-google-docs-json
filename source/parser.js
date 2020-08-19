@@ -1,8 +1,8 @@
-import json2md from "json2md";
-import YAML from "yamljs";
-import _last from "lodash.last";
-import _get from "lodash.get";
-import _repeat from "lodash.repeat";
+const json2md = require("json2md");
+const YAML = require("yamljs");
+const _last = require("lodash.last");
+const _get = require("lodash.get");
+const _repeat = require("lodash.repeat");
 
 function getParagraphTag(p) {
   const tags = {
@@ -303,4 +303,4 @@ ${YAML.stringify(metadata)}
 ${json2md(content)}`;
 }
 
-export { convertGoogleDocumentToJson, convertJsonToMarkdown };
+module.exports = { convertGoogleDocumentToJson, convertJsonToMarkdown };

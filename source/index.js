@@ -1,10 +1,10 @@
-import googleapis from "googleapis";
+const googleapis = require("googleapis");
 const { google } = googleapis;
 
-import {
+const {
   convertGoogleDocumentToJson,
   convertJsonToMarkdown,
-} from "./parser.js";
+} = require("./parser.js");
 
 const docs = google.docs({
   version: "v1",
@@ -52,4 +52,4 @@ async function parseGoogleDocs(configuration = {}) {
   };
 }
 
-export default parseGoogleDocs;
+module.exports = parseGoogleDocs;

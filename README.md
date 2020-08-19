@@ -13,10 +13,10 @@ This module works like a charm, but it's for personal use, primarily. It will fo
 # How to use
 
 ```js
-import parseGoogleDocs from "./source/index.js";
+const parseGoogleDocsJson = require("parse-google-docs-json");
 
 async function start() {
-  const parsed = await parseGoogleDocs({
+  const parsed = await parseGoogleDocsJson({
     documentId: "1ymKw2OGcMfc02XdEEWdy22a_zUAlCxyN3P5Ab4c",
     clientEmail: "service@iam.gserviceaccount.com",
     privateKey: "-----BEGIN PRIVATE KEY...",
