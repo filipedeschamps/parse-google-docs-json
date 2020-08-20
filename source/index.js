@@ -38,7 +38,12 @@ async function parseGoogleDocs(configuration = {}) {
   });
 
   function toJson() {
-    return convertGoogleDocumentToJson(docsResponse.data);
+    const jsonDocument = convertGoogleDocumentToJson(docsResponse.data);
+
+    return {
+      metadata: { title: docsResponse.data.title },
+      ...jsonDocument,
+    };
   }
 
   function toMarkdown() {
