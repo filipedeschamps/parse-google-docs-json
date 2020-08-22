@@ -24,6 +24,7 @@
     "url": "https://github.com/filipedeschamps/parse-google-docs-json/issues"
   },
   "homepage": "https://github.com/filipedeschamps/parse-google-docs-json#readme",
+  "typings": "index.d.ts",
   "dependencies": {
     "googleapis": "59.0.0",
     "json2md": "1.7.1",
