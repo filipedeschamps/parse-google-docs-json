@@ -29,7 +29,7 @@ function getListTag(list) {
 }
 
 function cleanText(text) {
-  return text.replace(/\n/g, "");
+  return text.replace(/\n/g, "").trim();
 }
 
 function getNestedListIndent(level, listTag) {
@@ -85,6 +85,7 @@ function getBulletContent(document, element) {
 }
 
 function getText(element, { isHeader = false } = {}) {
+  let text = cleanText(element.textRun.content);
   const {
     link,
     underline,
@@ -92,8 +93,6 @@ function getText(element, { isHeader = false } = {}) {
     bold,
     italic,
   } = element.textRun.textStyle;
-
-  let [before, text, after] = getTextChunks(element.textRun.content.replace(/\n$/, ""));
 
   text = text.replace(/\*/g, "\\*");
   text = text.replace(/_/g, "\\_");
@@ -117,22 +116,10 @@ function getText(element, { isHeader = false } = {}) {
   }
 
   if (link) {
-    return before + `[${text}](${link.url})` + after;
+    return `[${text}](${link.url})`;
   }
 
-  return before + text + after;
-}
-
-function getTextChunks(text) {
-  if (!text || !text.length) {
-    return ["", text, ""];
-  }
-  const textChunksMatch = text.match(/^(\s*)(\S+(?:[ \t\v]*\S+)*)(\s*)$/);
-  if (textChunksMatch) {
-    const [, before, textContent, after] = textChunksMatch;
-    return [before, textContent, after];
-  }
-  return ["", text, ""];
+  return text;
 }
 
 function getCover(document) {
@@ -185,7 +172,7 @@ function convertGoogleDocumentToJson(document) {
 
         const bulletContent = paragraph.elements
           .map((el) => getBulletContent(document, el))
-          .join("")
+          .join(" ")
           .replace(" .", ".")
           .replace(" ,", ",");
 
@@ -251,7 +238,7 @@ function convertGoogleDocumentToJson(document) {
           content.push({
             [tag]: tagContent
               .map((el) => el[tag])
-              .join("")
+              .join(" ")
               .replace(" .", ".")
               .replace(" ,", ","),
           });
@@ -284,7 +271,7 @@ function convertGoogleDocumentToJson(document) {
     const text_items = value.content[0].paragraph.elements.map((element) =>
       getText(element)
     );
-    const text = text_items.join("").replace(" .", ".").replace(" ,", ",");
+    const text = text_items.join(" ").replace(" .", ".").replace(" ,", ",");
 
     formatedFootnotes.push({
       footnote: { number: footnoteIDs[value.footnoteId], text: text },
